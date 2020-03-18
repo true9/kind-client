@@ -21,3 +21,75 @@ h2 {
   color: #1e55a5;
   font-weight: 600;
 }
+
+.form {
+
+  &-row {
+    margin-bottom: 20px;
+
+    &--postcode {
+      .form-input {
+        max-width: 80px;
+      }
+    }
+  }
+
+  &-label {
+    font-size: 17px;
+    color: #3c3c3c;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  &-input {
+    max-width: 400px;
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #bebebe;
+      background: none #fff;
+      padding: 0 15px;
+      color: #000000;
+      font-size: 17px;
+      font-weight: 400;
+      min-height: 45px;
+    }
+
+    textarea {
+      min-height: 120px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-style: italic;
+    }
+  }
+
+  &-warning {
+    background: #c8ebff;
+    padding: 15px;
+
+    label {
+      color: #3c3c3c;
+      line-height: 20px;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #b4b4b4;
+      background: #fff;
+      display: inline-block;
+
+      input {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: none;
+        border: none;
+      }
+    }
+  }
+}
