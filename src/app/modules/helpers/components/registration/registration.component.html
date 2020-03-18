@@ -1,0 +1,30 @@
+<h1>I want to help</h1>
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+  <label>
+    Name:
+    <input type="text" formControlName="name" required />
+  </label>
+  <label>
+    Post code (initial prefix only, ie. BD16):
+    <input type="text" formControlName="partialPostcode" required />
+  </label>
+  <label>
+    Contact mobile number:
+    <input type="text" formControlName="contactPhone" required />
+  </label>
+  <label>
+    Message:
+    <textarea formControlName="servicesProvided" required></textarea>
+  </label>
+  <div>
+    <p>
+      I am over the age of 18 and i give consent for my details to be publicly displayed.
+      I hereby give consent for those in need to contact me on the number provided.
+      <label>
+        <input type="checkbox" formControlName="gdprConsent" /> I agree to the terms of use
+      </label>
+    </p>
+  </div>
+  <button type="submit" [disabled]="!registrationForm.valid">Register</button>
+  <span *ngIf="error">{{ error }}</span>
+</form>

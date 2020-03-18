@@ -1,10 +1,10 @@
 <button style="position: fixed; top: 0; right: 0;" (click)="addPlaceholderHelper()">[DEV] Add example helper</button>
 
 <section class="form">
-  <h1>Find someone who can help</h1>
+  <h1>I want help</h1>
   <form>
     <label>
-      Postcode:
+      Post code (initial prefix only, ie. BD16):
       <input type="text" name="postcode" id="postcode" [(ngModel)]="postcode" />
     </label>
     <button type="submit" [disabled]="!postcode">Find a helper</button>
@@ -19,7 +19,7 @@
   <ng-container *ngIf="!helpers.length && postcode">
     <b class="data__empty">There are no helpers available in {{ postcode }}</b>
   </ng-container>
-  
+
   <ng-container *ngIf="helpers.length && postcode">
     <div class="data__item" *ngFor="let helper of helpers">
       <span class="data__item__heading">{{ helper.name }}</span>
