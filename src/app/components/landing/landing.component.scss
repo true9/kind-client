@@ -1,4 +1,6 @@
 .site {
+  position: relative;
+  padding: 50px 0;
 
   &-wrapper {
     max-width: 1200px;
@@ -11,6 +13,20 @@
   }
 
   &-register {
+
+  }
+
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    max-width: 50%;
+    left: 0;
+    right: 0;
     background: #e1f5ff;
+    z-index: -1;
+    pointer-events: none;
+    content: " ";
+    display: block;
   }
 }
