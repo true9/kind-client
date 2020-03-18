@@ -1,0 +1,32 @@
+.footer {
+  border-top: 1px solid #f0f0f0;
+
+  &-brand {
+    svg {
+      width: 44px;
+      height: 48px;
+      margin-right: 20px;
+
+      path {
+        fill: #0071CE;
+      }
+    }
+  }
+
+  &-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  p {
+    font-size: 15px;
+    color: #797979;
+
+    a {
+      text-decoration: underline;
+      color: #1e55a5;
+      font-weight: 600;
+    }
+  }
+}
