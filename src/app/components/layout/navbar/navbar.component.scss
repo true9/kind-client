@@ -1,0 +1,31 @@
+.navbar {
+  background: #1e55a5;
+  text-align: center;
+  padding: 50px 0 26px 0;
+
+  svg {
+    width: 221px;
+    height: 68px;
+    margin-bottom: 24px;
+
+    path {
+      fill: #fff;
+    }
+  }
+
+  &-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+
+  p {
+    color: #fff;
+  }
+}
