@@ -1,6 +1,6 @@
 <section class="form">
   <h2>I need help.</h2>
-  <form>
+  <form (ngSubmit)="submitForm()">
     <label>
       Post code (initial prefix only, ie. BD16):
       <input type="text" name="postcode" id="postcode" [(ngModel)]="postcode" />
@@ -9,16 +9,17 @@
   </form>
 </section>
 <section class="data">
-
-  <ng-container *ngIf="!postcode">
-    <b>Please enter a postcode to locate helpers</b>
+  <ng-container *ngIf="loading">
+    <b>Searching for helpers in {{ postcode }}...</b>
   </ng-container>
 
-  <ng-container *ngIf="!helpers.length && postcode">
-    <b class="data__empty">There are no helpers available in {{ postcode }}</b>
+  <ng-container *ngIf="!helpers.length && loaded">
+    <b>There are no helpers available in {{ postcode }}</b>
   </ng-container>
 
-  <ng-container *ngIf="helpers.length && postcode">
+  <ng-container *ngIf="helpers.length && loaded">
+    <b *ngIf="helpers.length == 1">There is 1 helper in {{ helpers[0].partialPostcode }}</b>
+    <b *ngIf="helpers.length > 1">There are {{ helpers.length }} helpers in {{ helpers[0].partialPostcode }}</b>
     <div class="data__item" *ngFor="let helper of helpers">
       <span class="data__item__heading">{{ helper.name }}</span>
       <span class="data__item__body">{{ helper.servicesProvided }}</span>
