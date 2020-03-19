@@ -1,9 +1,9 @@
 import { url as generateUrl } from './api-url';
 
 export const api = {
-  protocol: "https",
-  baseUrl: "api.kind.t9staging.co.uk",
-  port: null,
+  protocol: "http",
+  baseUrl: "localhost",
+  port: 3000,
   url: (endpoint: string, args: any = null) => {
     return generateUrl(api, endpoint, args);
   }

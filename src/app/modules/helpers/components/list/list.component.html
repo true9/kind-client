@@ -1,0 +1,26 @@
+<section>
+  <h1 *ngIf="loading">
+    Searching for local heroes in {{ postcode }}{{ dots }}
+  </h1>
+  <h1 *ngIf="loaded">
+    <ng-container *ngIf="helpers && helpers.length">
+      Great news. We found {{ helpers.length }} local hero<span *ngIf="helpers.length > 1">es</span> in {{ postcode }}
+    </ng-container>
+
+    <ng-container *ngIf="!helpers.length">
+      We couldn't find any local heroes in {{ postcode }}
+    </ng-container>
+  </h1>
+  <p *ngIf="loaded && helpers.length">Take a look over the offers of support and contact the local hero. We would ask that you enter
+  into any contact carefully and respectfully. <br><br> Offers are not vetted by KIND. We are ONLY a message board.</p>
+</section>
+<section *ngIf="loaded">
+  <div *ngFor="let helper of helpers">
+    <b>{{ helper.name }}</b>
+    {{ helper.contactPhone }}
+<!--    <button [disabled]="true">Edit/Remove</button>-->
+    <a href="mailto:help@kind.co.uk?subject=Abuse Report ({{ helper.name }} - {{ helper.contactPhone }})">Report</a>
+    <hr>
+    <p>{{ helper.servicesProvided }}</p>
+  </div>
+</section>

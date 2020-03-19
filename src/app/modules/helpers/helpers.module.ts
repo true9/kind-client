@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from 'src/app/modules/helpers/components/registration/registration.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from 'src/app/modules/helpers/services/helper.service';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
   declarations: [
     FinderComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,

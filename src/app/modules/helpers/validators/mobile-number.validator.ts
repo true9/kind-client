@@ -20,7 +20,7 @@ export function mobileNumberValidator(): ValidatorFn {
       if (value.length === 11 && !value.match(/[^0-9]/g)) {
         return null;
       } else {
-        return { 'contactPhone': { 'valid': false, value }};
+        return { contactPhone: { valid: false, value }};
       }
     }
 
@@ -28,10 +28,10 @@ export function mobileNumberValidator(): ValidatorFn {
       if (value.length === 13 && !value.match(/[^0-9+]/g)) {
         return null;
       } else {
-        return { 'contactPhone': { 'valid': false, value }};
+        return { contactPhone: { valid: false, value }};
       }
     }
 
-    return { 'contactPhone': { 'valid': false, value }};
+    return { contactPhone: { valid: false, value }};
   };
 }

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FinderComponent } from 'src/app/modules/helpers/components/finder/finder.component';
+
+import { ListComponent } from 'src/app/modules/helpers/components/list/list.component';
 
 
 const routes: Routes = [
-  { path: 'search', pathMatch: 'full', component: FinderComponent }
+  { path: 'helpers/:postcode', pathMatch: 'full', component: ListComponent }
 ];
 
 @NgModule({
