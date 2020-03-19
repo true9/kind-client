@@ -3,7 +3,7 @@
 <p>Become a hero and help your neighbours in their hour of need.</p>
 <p>Your information and offer of help will only be visible to those searching in your area.</p>
 
-<form [formGroup]="registrationForm" (ngSubmit)="submitForm()" class="form">
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()" class="form" *ngIf="registrationForm">
   <div class="form-row">
     <label class="form-label">Name:</label>
     <div class="form-input">
@@ -40,4 +40,5 @@
   </div>
   <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
   <span *ngIf="error">{{ error }}</span>
+  <span *ngIf="success">Thank you - a text has been sent to the mobile number provided for confirmation</span>
 </form>

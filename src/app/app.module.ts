@@ -8,6 +8,7 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
   imports: [
     BrowserModule,
     HelpersModule,
+    RouterModule,
     AppRoutingModule
   ],
   providers: [],
