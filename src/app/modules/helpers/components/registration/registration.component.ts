@@ -27,7 +27,7 @@ export class RegistrationComponent {
       name: new FormControl('', [Validators.required]),
       partialPostcode: new FormControl('', [Validators.required]),
       contactPhone: new FormControl('', [Validators.required, mobileNumberValidator()]),
-      servicesProvided: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      servicesProvided: new FormControl('', [Validators.required]),
       gdprConsent: new FormControl(false, [Validators.pattern('true')])
     });
   }
