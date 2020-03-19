@@ -32,6 +32,15 @@
   }
 }
 
+@media (max-width: 991px) {
+
+  .site-wrapper > div {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+}
+
 @media (max-width: 575px) {
 
   .site {
