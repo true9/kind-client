@@ -1,26 +1,31 @@
-<section>
-  <h1 *ngIf="loading">
-    Searching for local heroes in {{ postcode }}{{ dots }}
-  </h1>
-  <h1 *ngIf="loaded">
-    <ng-container *ngIf="helpers && helpers.length">
-      Great news. We found {{ helpers.length }} local hero<span *ngIf="helpers.length > 1">es</span> in {{ postcode }}
-    </ng-container>
+<div class="helpers">
+  <section>
+    <h1 *ngIf="loading">
+      Searching for local heroes in <span class="highlight">{{ postcode }}</span>{{ dots }}
+    </h1>
+    <h1 *ngIf="loaded">
+      <ng-container *ngIf="helpers && helpers.length">
+        We've found {{ helpers.length }} local hero<span *ngIf="helpers.length > 1">es</span> in <span class="highlight">{{ postcode }}</span>.
+      </ng-container>
 
-    <ng-container *ngIf="!helpers.length">
-      We couldn't find any local heroes in {{ postcode }}
-    </ng-container>
-  </h1>
-  <p *ngIf="loaded && helpers.length">Take a look over the offers of support and contact the local hero. We would ask that you enter
-  into any contact carefully and respectfully. <br><br> Offers are not vetted by KIND. We are ONLY a message board.</p>
-</section>
-<section *ngIf="loaded">
-  <div *ngFor="let helper of helpers">
-    <b>{{ helper.name }}</b>
-    {{ helper.contactPhone }}
-<!--    <button [disabled]="true">Edit/Remove</button>-->
-    <a href="mailto:help@kind.co.uk?subject=Abuse Report ({{ helper.name }} - {{ helper.contactPhone }})">Report</a>
-    <hr>
-    <p>{{ helper.servicesProvided }}</p>
-  </div>
-</section>
+      <ng-container *ngIf="!helpers.length">
+        We couldn't find any local heroes in <span class="highlight">{{ postcode }}</span>.
+      </ng-container>
+    </h1>
+    <p *ngIf="loaded && helpers.length">Take a look over the offers of support and get in touch directly. We gently ask that you enter into any contact carefully and respectfully.</p>
+    <p *ngIf="loaded && helpers.length">Offers are not vetted by KIND. We are ONLY a message board and cannot be held responsible for the actions of helpers.</p>
+  </section>
+  <section *ngIf="loaded">
+    <div class="helpers-list">
+      <div class="helper" *ngFor="let helper of helpers">
+        <h3>{{ helper.name }}</h3>
+          <p class="helper-no">{{ helper.contactPhone }}</p>
+          <div class="helper-body">
+            <p>{{ helper.servicesProvided }}</p>
+          </div>
+        <!--<button [disabled]="true">Edit/Remove</button>-->
+        <!--<a href="mailto:help@kind.co.uk?subject=Abuse Report ({{ helper.name }} - {{ helper.contactPhone }})">Report</a>-->
+      </div>
+    </div>
+  </section>
+</div>
