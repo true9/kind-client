@@ -48,6 +48,13 @@ h2 {
     }
   }
 
+  &-error {
+    color: #b40000;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+
   &-label {
     font-size: 17px;
     color: #3c3c3c;
@@ -91,11 +98,11 @@ h2 {
           - ng-untouched; input has not been touched, regardless of valid/dirty state
        */
       &.ng-touched.ng-invalid {
-        border-color: red;
+        border-color: #b40000;
       }
 
       &.ng-dirty.ng-invalid {
-        border-color: red;
+        border-color: #b40000;
       }
 
       &.ng-touched.ng-valid {
@@ -134,13 +141,13 @@ h2 {
 
         &.ng-dirty.ng-invalid {
           + label:before {
-            border-color: red;
+            border-color: #b40000;
           }
         }
 
         &.ng-dirty.ng-valid {
           + label:before {
-            border-color: green;
+            border-color: #1e55a5;
           }
         }
 

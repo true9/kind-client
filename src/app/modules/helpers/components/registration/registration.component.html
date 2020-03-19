@@ -10,18 +10,18 @@
     <label class="form-label">Name:</label>
     <div class="form-input">
       <input type="text" formControlName="name" required />
-      <div *ngIf="name.invalid && name.touched">
-        A name is required
-      </div>
+    </div>
+    <div class="form-error" *ngIf="name.invalid && name.touched">
+      Please enter your name
     </div>
   </div>
   <div class="form-row form-row--postcode">
     <label class="form-label">Postcode: <span>Only enter the first 4 characters, for example BD20.</span></label>
     <div class="form-input">
       <input type="text" formControlName="partialPostcode" required />
-      <div *ngIf="partialPostcode.invalid && partialPostcode.touched">
-        The first half of a postcode is required
-      </div>
+    </div>
+    <div class="form-error" *ngIf="partialPostcode.invalid && partialPostcode.touched">
+      Please enter the first 3 or 4 characters of your postcode
     </div>
   </div>
   <div class="form-row">
@@ -31,18 +31,18 @@
     </label>
     <div class="form-input">
       <input type="text" formControlName="contactPhone" placeholder="e.g. 07895 123456" required />
-      <div *ngIf="contactPhone.invalid && contactPhone.touched">
-        Please provide a mobile number in either UK Format (07xx) or international format (+447xx)
-      </div>
+    </div>
+    <div class="form-error" *ngIf="contactPhone.invalid && contactPhone.touched">
+      Please enter a valid mobile number, starting with 07 or +447
     </div>
   </div>
   <div class="form-row">
     <label class="form-label">How Can You Help?</label>
     <div class="form-input">
       <textarea formControlName="servicesProvided" placeholder="e.g. I can help collect medication, food, shopping, etc. I can walk your dog or be on the other end of a phone for a friendly chat." required></textarea>
-      <div *ngIf="servicesProvided.invalid && servicesProvided.touched">
-        Please tell us what help you can offer to people in need
-      </div>
+    </div>
+    <div class="form-error" *ngIf="servicesProvided.invalid && servicesProvided.touched">
+      Please add a message about how you help those in need
     </div>
   </div>
   <div class="form-row">
@@ -50,10 +50,10 @@
       <div class="check">
         <input id="ipt-consent" type="checkbox" formControlName="gdprConsent" />
         <label for="ipt-consent">I am over the age of 18 and I give consent for my details to be publicly displayed on the KIND website and for those in need to contact me on the mobile number provided.</label>
-        <div *ngIf="gdprConsent.invalid && gdprConsent.dirty && gdprConsent.errors.pattern != null">
-          You need to accept these terms to sign up
-        </div>
       </div>
+    </div>
+    <div class="form-error" *ngIf="gdprConsent.invalid && gdprConsent.dirty && gdprConsent.errors.pattern != null">
+      Please accept the KIND website terms
     </div>
   </div>
   <button class="btn" type="submit" [disabled]="!registrationForm.valid">Submit</button>
