@@ -31,10 +31,14 @@
       <h2 *ngIf="helpers.length > 1">We've found {{ helpers.length }} local heroes in <span class="highlight uppercase">{{helpers[0].partialPostcode}}</span>.</h2>
       <p>Take a look over the offers of support and get in touch directly. We gently ask that you enter into any contact carefully and respectfully.</p>
       <p>Offers are not vetted by KIND. We are ONLY a message board and cannot be held responsible for the actions of helpers.</p>
-      <div class="data__item" *ngFor="let helper of helpers">
-        <span class="data__item__heading">{{ helper.name }}</span>
-        <span class="data__item__body">{{ helper.servicesProvided }}</span>
-        <span class="data__item__footer">{{ helper.contactPhone }}</span>
+      <div class="helpers-list">
+        <div class="helper" *ngFor="let helper of helpers">
+          <h3>{{ helper.name }}</h3>
+          <p class="helper-no">{{ helper.contactPhone }}</p>
+          <div class="helper-body">
+            <p>{{ helper.servicesProvided }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </ng-container>
