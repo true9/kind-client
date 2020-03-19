@@ -54,8 +54,8 @@ export class RegistrationComponent {
     this.loading = false;
   }
 
-  private displayErrors(error: Error) {
-    this.error = error.message;
+  private displayErrors(error: any) {
+    this.error = error.error.message;
     this.loading = false;
   }
 
