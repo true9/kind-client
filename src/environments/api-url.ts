@@ -20,5 +20,5 @@ export function url(baseConfig: any, endpoint: string, args: any = null) {
     }
   });
 
-  return url + parts.join('/');
+  return apiUrl + parts.join('/');
 }
