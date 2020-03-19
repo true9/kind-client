@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import Helper from 'src/app/shared/models/helper.model';
+import { HelperService } from 'src/app/modules/helpers/services/helper.service';
 
 @Component({
   selector: 'app-registration',
@@ -13,10 +15,12 @@ export class RegistrationComponent {
   public registrationForm: FormGroup;
 
   public loading: boolean;
+  public success: boolean;
   public error: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private helperService: HelperService
   ) {
     this.registrationForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -29,6 +33,7 @@ export class RegistrationComponent {
 
   public submitForm(): void {
     this.loading = true;
+    this.success = null;
     this.error = null;
 
     const helper: Helper = new Helper({
@@ -38,17 +43,19 @@ export class RegistrationComponent {
       servicesProvided: this.getValue('servicesProvided')
     });
 
-    // @TODO - Uncomment when auth service is available
-    // this.authService.register(helper).subscribe(
-    //   data => this.router.navigate(['/dashboard']),
-    //   err => this.displayErrors(err)
-    // );
-
-    console.log('submitted registration form!', helper);
+    this.helperService.register(helper).subscribe(
+      () => this.displaySuccess(),
+      err => this.displayErrors(err)
+    );
   }
 
-  private displayErrors(error: Error) {
-    this.error = error.message;
+  private displaySuccess() {
+    this.success = true;
+    this.loading = false;
+  }
+
+  private displayErrors(error: any) {
+    this.error = error.error.message;
     this.loading = false;
   }
 

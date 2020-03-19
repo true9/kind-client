@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import Helper from 'src/app/shared/models/helper.model';
+import { HelperService } from 'src/app/modules/helpers/services/helper.service';
 
 @Component({
   selector: 'app-finder',
@@ -8,18 +9,27 @@ import Helper from 'src/app/shared/models/helper.model';
 })
 export class FinderComponent {
 
+  public loading: boolean;
+  public loaded: boolean;
   public postcode: string;
   public helpers: Helper[] = [];
 
-  constructor() { }
+  constructor(
+    private helperService: HelperService
+  ) { }
 
-  public addPlaceholderHelper(): void {
-    this.helpers.push(new Helper({
-      name: 'Example McExample',
-      partialPostcode: 'BD16',
-      contactPhone: '01234567890',
-      servicesProvided: 'Picking up groceries, cooking and cleaning',
-    }));
+  public submitForm(): void {
+    this.loading = true;
+    this.helperService.postcodeLookup(this.postcode).subscribe(
+      data => {
+        this.helpers = data;
+        this.loaded = true;
+        this.loading = false;
+      },
+      () => {
+        this.loaded = false;
+        this.loading = false;
+      }
+    );
   }
-
 }
