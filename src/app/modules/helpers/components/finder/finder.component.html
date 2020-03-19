@@ -19,13 +19,16 @@
   </ng-container>
 
   <ng-container *ngIf="!helpers.length && loaded">
-    <b>There are no helpers available in {{ postcode }}</b>
+    <div class="helpers helpers--none">
+      <h2>Sadly there are no local heroes in <span class="uppercase highlight">{{ postcode }}</span> registered with KIND.</h2>
+      <p>Please try again later or try using a different postcode.</p>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="helpers.length && loaded">
     <div class="helpers">
-      <h2 *ngIf="helpers.length == 1">We've found 1 local hero in <span class="highlight">{{helpers[0].partialPostcode}}</span>.</h2>
-      <h2 *ngIf="helpers.length > 1">We've found {{ helpers.length }} local heroes in <span class="highlight">{{helpers[0].partialPostcode}}</span>.</h2>
+      <h2 *ngIf="helpers.length == 1">We've found 1 local hero in <span class="highlight uppercase">{{helpers[0].partialPostcode}}</span>.</h2>
+      <h2 *ngIf="helpers.length > 1">We've found {{ helpers.length }} local heroes in <span class="highlight uppercase">{{helpers[0].partialPostcode}}</span>.</h2>
       <p>Take a look over the offers of support and get in touch directly. We gently ask that you enter into any contact carefully and respectfully.</p>
       <p>Offers are not vetted by KIND. We are ONLY a message board and cannot be held responsible for the actions of helpers.</p>
       <div class="data__item" *ngFor="let helper of helpers">
