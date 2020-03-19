@@ -35,6 +35,10 @@ h2 {
     &--postcode {
       .form-input {
         max-width: 80px;
+
+        input {
+          text-transform: uppercase;
+        }
       }
     }
   }
