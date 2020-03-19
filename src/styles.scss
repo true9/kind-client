@@ -93,6 +93,11 @@ h2 {
     }
   }
 
+  &-input ~ small {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
   &-warning {
     background: #c8ebff;
     padding: 15px;

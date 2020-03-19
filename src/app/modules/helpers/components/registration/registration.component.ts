@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import Helper from 'src/app/shared/models/helper.model';
 import { HelperService } from 'src/app/modules/helpers/services/helper.service';
+import { mobileNumberValidator } from 'src/app/modules/helpers/validators/mobile-number.validator';
 
 @Component({
   selector: 'app-registration',
@@ -25,7 +26,7 @@ export class RegistrationComponent {
     this.registrationForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       partialPostcode: new FormControl('', [Validators.required]),
-      contactPhone: new FormControl('', [Validators.required]),
+      contactPhone: new FormControl('', [Validators.required, mobileNumberValidator()]),
       servicesProvided: new FormControl('', [Validators.required, Validators.minLength(10)]),
       gdprConsent: new FormControl(false, [Validators.pattern('true')])
     });
