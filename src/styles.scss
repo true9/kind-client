@@ -220,3 +220,44 @@ h2 {
 .form-intro {
   margin-bottom: 30px;
 }
+
+.reveal-wrapper {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.reveal-button {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .reveal-title {
+    padding: 30px 15px;
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  .reveal-wrapper {
+    padding: 0 15px 30px 15px;
+  }
+
+  .reveal-button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: none #fff;
+    border: 1px solid #1e55a5;
+    align-self: center;
+    font-size: 32px;
+    text-align: center;
+    line-height: 30px;
+    color: #1e55a5;
+  }
+}
