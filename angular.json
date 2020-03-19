@@ -62,8 +62,8 @@
                   "with": "src/environments/environment.prod.ts"
                 },
                 {
-                  "replace": "src/environment/api.ts",
-                  "with": "src/environment/api.prod.ts"
+                  "replace": "src/environments/api.ts",
+                  "with": "src/environments/api.prod.ts"
                 }
               ],
               "optimization": true,
