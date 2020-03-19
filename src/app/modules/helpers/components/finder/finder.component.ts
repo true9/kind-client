@@ -14,12 +14,14 @@ export class FinderComponent {
   public loading: boolean;
   public loaded: boolean;
   public postcode: string;
+  public displayPostcode: string;
   public helpers: Helper[] = [];
+  public emptyNotice: boolean;
 
   constructor(
     private helperService: HelperService,
     private router: Router
-  ) { }
+  ) {}
 
   public submitForm(): void {
     this.loading = true;
@@ -30,7 +32,13 @@ export class FinderComponent {
         this.loaded = true;
         this.loading = false;
 
-        await this.router.navigate(['/helpers', this.postcode]);
+        if (data.length !== 0) {
+          await this.router.navigate(['/helpers', this.postcode]);
+        }
+
+        // Copy the value from this.postcode into a new variable via JSON parse/stringify hack
+        // so we can display a postcode that doesn't change when the user updates the input
+        this.displayPostcode = JSON.parse(JSON.stringify(this.postcode));
       },
       () => {
         this.loaded = false;
