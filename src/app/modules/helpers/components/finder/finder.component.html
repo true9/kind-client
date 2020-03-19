@@ -1,11 +1,16 @@
 <section class="form">
-  <h2>I need help.</h2>
-  <form (ngSubmit)="submitForm()">
-    <label>
-      Post code (initial prefix only, ie. BD16):
-      <input type="text" name="postcode" id="postcode" [(ngModel)]="postcode" />
-    </label>
-    <button type="submit" [disabled]="!postcode">Find a helper</button>
+  <div class="form-intro">
+    <h2>I need help.</h2>
+    <p>If you're self isolating as a result of the coronavirus, use the form below to find local people willing to help.</p>
+  </div>
+  <form (ngSubmit)="submitForm()" class="form">
+    <div class="form-row form-row--postcode">
+      <label class="form-label">Postcode: <span>Only enter the first 4 characters, for example BD20.</span></label>
+      <div class="form-input">
+        <input type="text" name="postcode" id="postcode" [(ngModel)]="postcode" />
+      </div>
+    </div>
+    <button class="btn" type="submit" [disabled]="!postcode">Find a Helper</button>
   </form>
 </section>
 <section class="data">

@@ -14,18 +14,19 @@ p, h1, h2, h3, h4, h5 {
 
 p {
   line-height: 24px;
+  margin-bottom: 8px;
 }
 
 h2 {
   font-size: 40px;
   color: #1e55a5;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .form {
-
   &-row {
-    margin-bottom: 20px;
+    margin-bottom: 27px;
 
     &--postcode {
       .form-input {
@@ -39,6 +40,15 @@ h2 {
     color: #3c3c3c;
     font-weight: 600;
     line-height: 20px;
+    margin-bottom: 15px;
+    display: block;
+
+    span {
+      display: block;
+      color: #757575;
+      font-weight: 400;
+      font-style: italic;
+    }
   }
 
   &-input {
@@ -53,6 +63,10 @@ h2 {
       font-size: 17px;
       font-weight: 400;
       min-height: 45px;
+
+      &:focus {
+        border-color: #008fe0;
+      }
     }
 
     textarea {
@@ -69,7 +83,8 @@ h2 {
 
   &-warning {
     background: #c8ebff;
-    padding: 15px;
+    padding: 15px 15px 15px 50px;
+    position: relative;
 
     label {
       color: #3c3c3c;
@@ -81,7 +96,9 @@ h2 {
       height: 20px;
       border: 1px solid #b4b4b4;
       background: #fff;
-      display: inline-block;
+      position: absolute;
+      top: 15px;
+      left: 15px;
 
       input {
         width: 100%;
@@ -92,4 +109,27 @@ h2 {
       }
     }
   }
+}
+
+.btn {
+  background: none #1e55a5;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 13px 30px;
+  margin: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #1e55a5;
+  opacity: 1;
+
+  &:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+  }
+}
+
+.form-intro {
+  margin-bottom: 30px;
 }
