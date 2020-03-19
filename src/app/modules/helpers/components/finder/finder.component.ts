@@ -26,21 +26,10 @@ export class FinderComponent {
         this.loaded = true;
         this.loading = false;
       },
-      err => {
+      () => {
         this.loaded = false;
         this.loading = false;
-        console.error('nope', err);
       }
     );
   }
-
-  public addPlaceholderHelper(): void {
-    this.helpers.push(new Helper({
-      name: 'Example McExample',
-      partialPostcode: 'BD16',
-      contactPhone: '01234567890',
-      servicesProvided: 'Picking up groceries, cooking and cleaning',
-    }));
-  }
-
 }
