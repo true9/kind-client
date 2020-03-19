@@ -31,3 +31,27 @@
     display: block;
   }
 }
+
+@media (max-width: 575px) {
+
+  .site {
+    padding: 0;
+  }
+
+  .site:after {
+    display: none;
+  }
+
+  .site-wrapper {
+    display: block;
+
+    > div {
+      padding: 30px 15px;
+    }
+
+    > div:first-child {
+      background: #e1f5ff;
+    }
+  }
+
+}
