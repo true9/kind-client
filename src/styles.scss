@@ -80,6 +80,27 @@ h2 {
       &:focus {
         border-color: #008fe0;
       }
+
+      /**
+          Angular validator classes - applied automatically to inputs
+          - ng-touched; input has been focused and unfocused
+          - ng-dirty; input has been typed in/changed
+          - ng-valid; input is valid, regardless of touched/dirty state
+          - ng-invalid; input is invalid, regardless of touched/dirty state
+          - ng-pristine; input has not been touched, is not dirty, regardless of validity
+          - ng-untouched; input has not been touched, regardless of valid/dirty state
+       */
+      &.ng-touched.ng-invalid {
+        border-color: red;
+      }
+
+      &.ng-dirty.ng-invalid {
+        border-color: red;
+      }
+
+      &.ng-touched.ng-valid {
+        border-color: green;
+      }
     }
 
     textarea {
@@ -110,6 +131,18 @@ h2 {
         opacity: 0;
         position: absolute;
         left: 0;
+
+        &.ng-dirty.ng-invalid {
+          + label:before {
+            border-color: red;
+          }
+        }
+
+        &.ng-dirty.ng-valid {
+          + label:before {
+            border-color: green;
+          }
+        }
 
         + label:after {
           content: none;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 import Helper from 'src/app/shared/models/helper.model';
 import { HelperService } from 'src/app/modules/helpers/services/helper.service';
@@ -67,4 +67,18 @@ export class RegistrationComponent {
 
     throw new Error('Invalid form control key provided');
   }
+
+  public get(key: string): any {
+    if (this.registrationForm.contains(key)) {
+      return this.registrationForm.get(key).value;
+    }
+
+    throw new Error('Invalid form control key provided');
+  }
+
+  get name(): AbstractControl { return this.registrationForm.get('name'); }
+  get partialPostcode(): AbstractControl { return this.registrationForm.get('partialPostcode'); }
+  get contactPhone(): AbstractControl { return this.registrationForm.get('contactPhone'); }
+  get servicesProvided(): AbstractControl { return this.registrationForm.get('servicesProvided'); }
+  get gdprConsent(): AbstractControl { return this.registrationForm.get('gdprConsent'); }
 }
