@@ -5,7 +5,7 @@
   <p>Your information and offer of help will only be visible to those searching in your area.</p>
 </div>
 
-<form [formGroup]="registrationForm" (ngSubmit)="submitForm()" class="form" *ngIf="registrationForm">
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()" class="form" *ngIf="registrationForm && !success">
   <div class="form-row">
     <label class="form-label">Name:</label>
     <div class="form-input">
@@ -46,3 +46,11 @@
   <span *ngIf="error">{{ error }}</span>
   <span *ngIf="success">Thank you - a text has been sent to the mobile number provided for confirmation</span>
 </form>
+<div *ngIf="success">
+  <h1>Thank you! And thank you again.</h1>
+  <p>Your submission of help is greatly appreciated. Hopefully a person or family in need will be in touch shortly.</p>
+  <div>
+    If your situation changes and you need to amend your offering or remote it completely. Simply search for your detail
+    via the help finder and click on "edit/remove offer"
+  </div>
+</div>
