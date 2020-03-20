@@ -19,10 +19,10 @@
     <div class="helpers-list">
       <div class="helper" *ngFor="let helper of helpers">
         <h3>{{ helper.name }}</h3>
-          <p class="helper-no">{{ helper.contactPhone }}</p>
-          <div class="helper-body">
-            <p>{{ helper.servicesProvided }}</p>
-          </div>
+        <p class="helper-no"><a href="tel:{{ helper.contactPhone }}">{{ helper.contactPhone }}</a></p>
+        <div class="helper-body">
+          <p>{{ helper.servicesProvided }}</p>
+        </div>
         <!--<button [disabled]="true">Edit/Remove</button>-->
         <!--<a href="mailto:help@kind.co.uk?subject=Abuse Report ({{ helper.name }} - {{ helper.contactPhone }})">Report</a>-->
       </div>
