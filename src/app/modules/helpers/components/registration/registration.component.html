@@ -33,7 +33,7 @@
     <div class="form-row form-row--postcode">
       <label class="form-label">Postcode: <span>Only enter the first 4 characters, for example BD20.</span></label>
       <div class="form-input">
-        <input type="text" formControlName="partialPostcode" required />
+        <input type="text" maxlength="4" formControlName="partialPostcode" required />
       </div>
       <div class="form-error" *ngIf="partialPostcode.invalid && partialPostcode.touched">
         Please enter the first 3 or 4 characters of your postcode
