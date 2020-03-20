@@ -23,7 +23,7 @@
           <div class="helper-body">
             <p>{{ helper.servicesProvided }}</p>
           </div>
-        <!--<button [disabled]="true">Edit/Remove</button>-->
+        <button [routerLink]="['/helpers', 'remove']">Edit/Remove</button>
         <!--<a href="mailto:help@kind.co.uk?subject=Abuse Report ({{ helper.name }} - {{ helper.contactPhone }})">Report</a>-->
       </div>
     </div>
