@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { LandingComponent } from 'src/app/components/landing/landing.component';
+import { NotFoundComponent } from 'src/app/components/not-found/not-found.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', component: LandingComponent },
+  { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

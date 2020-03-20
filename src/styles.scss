@@ -1,1 +1,265 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  color: #1e55a5;
+  font-size: 16px;
+  line-height: 1;
+  font-family: Arial,freesans,sans-serif;
+  padding: 0;
+  margin: 0;
+  min-width: 320px;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+p, h1, h2, h3, h4, h5 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 40px;
+  color: #1e55a5;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.form {
+  &-row {
+    margin-bottom: 27px;
+
+    &--postcode {
+      .form-input {
+        max-width: 80px;
+
+        input {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  &-error {
+    color: #b40000;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+
+  &-label {
+    font-size: 17px;
+    color: #3c3c3c;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 15px;
+    display: block;
+
+    span {
+      display: block;
+      color: #757575;
+      font-weight: 400;
+      font-style: italic;
+    }
+  }
+
+  &-input {
+    max-width: 400px;
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #bebebe;
+      background: none #fff;
+      padding: 0 15px;
+      color: #000000;
+      font-size: 17px;
+      font-weight: 400;
+      min-height: 45px;
+
+      &:focus {
+        border-color: #008fe0;
+      }
+
+      /**
+          Angular validator classes - applied automatically to inputs
+          - ng-touched; input has been focused and unfocused
+          - ng-dirty; input has been typed in/changed
+          - ng-valid; input is valid, regardless of touched/dirty state
+          - ng-invalid; input is invalid, regardless of touched/dirty state
+          - ng-pristine; input has not been touched, is not dirty, regardless of validity
+          - ng-untouched; input has not been touched, regardless of valid/dirty state
+       */
+      &.ng-touched.ng-invalid {
+        border-color: #b40000;
+      }
+
+      &.ng-dirty.ng-invalid {
+        border-color: #b40000;
+      }
+
+      &.ng-touched.ng-valid {
+        border-color: #1e55a5;
+      }
+    }
+
+    textarea {
+      min-height: 120px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      font-style: italic;
+    }
+  }
+
+  &-input ~ small {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  &-warning {
+    background: #c8ebff;
+    padding: 15px;
+
+    .check {
+      position: relative;
+
+      input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+
+        &.ng-dirty.ng-invalid {
+          + label:before {
+            border-color: #b40000;
+          }
+        }
+
+        &.ng-dirty.ng-valid {
+          + label:before {
+            border-color: #1e55a5;
+          }
+        }
+
+        + label:after {
+          content: none;
+        }
+
+        &:checked + label:after {
+          content: "";
+        }
+      }
+
+      label {
+        font-size: 14px;
+        color: #3c3c3c;
+        line-height: 20px;
+        padding-left: 35px;
+        display: block;
+
+        &:before,
+        &:after {
+          position: absolute;
+          content: "";
+          display: inline-block;
+        }
+
+        &:before {
+          height: 20px;
+          width: 20px;
+          border: 1px solid #b4b4b4;
+          background: none #fff;
+          left: 0;
+          top: 0;
+        }
+
+        &:after {
+          height: 5px;
+          width: 9px;
+          border-left: 2px solid;
+          border-bottom: 2px solid;
+          transform: rotate(-45deg);
+          left: 6px;
+          top: 7px;
+          color: #1e55a5;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  background: none #1e55a5;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 13px 30px;
+  margin: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid #1e55a5;
+  opacity: 1;
+
+  &:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+  }
+}
+
+.form-intro {
+  margin-bottom: 30px;
+}
+
+.reveal-wrapper {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.reveal-button {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .reveal-title {
+    padding: 30px 15px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  .reveal-wrapper {
+    padding: 0 15px 30px 15px;
+  }
+
+  .reveal-button {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: none #fff;
+    border: 1px solid #1e55a5;
+    align-self: center;
+    font-size: 32px;
+    text-align: center;
+    line-height: 30px;
+    color: #1e55a5;
+    cursor: pointer;
+  }
+}

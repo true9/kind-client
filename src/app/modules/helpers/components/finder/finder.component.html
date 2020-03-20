@@ -1,0 +1,38 @@
+<section class="reveal-title">
+  <h2 (click)="revealToggle = !revealToggle">I need help.</h2>
+  <div class="reveal-button" (click)="revealToggle = !revealToggle">
+    <span *ngIf="!revealToggle">+</span>
+    <span *ngIf="revealToggle">-</span>
+  </div>
+</section>
+
+<div class="reveal-wrapper" [ngClass]="{'reveal-wrapper--active': revealToggle}">
+  <section class="form">
+    <div class="form-intro">
+      <p>If you're self isolating as a result of the coronavirus, use the form below to find local people willing to help.</p>
+    </div>
+    <form (ngSubmit)="submitForm()" class="form">
+      <div class="form-row form-row--postcode">
+        <label class="form-label">Postcode: <span>Only enter the first 4 characters, for example BD20.</span></label>
+        <div class="form-input">
+          <input type="text" name="postcode" id="postcode" [(ngModel)]="postcode" />
+        </div>
+      </div>
+      <button class="btn" type="submit" [disabled]="!postcode">Find a Helper</button>
+    </form>
+  </section>
+  <section class="data">
+    <ng-container *ngIf="loading">
+      <div class="finders">
+        <p>Searching for helpers in {{ postcode }}...</p>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!helpers.length && loaded">
+      <div class="finders">
+        <h2>Sadly there are no local heroes in <span class="uppercase highlight">{{ displayPostcode }}</span> registered with KIND.</h2>
+        <p>Please try again later or try using a different postcode.</p>
+      </div>
+    </ng-container>
+  </section>
+</div>

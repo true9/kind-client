@@ -1,0 +1,41 @@
+.navbar {
+  background: rgb(30,85,165);
+  background: linear-gradient(90deg, rgba(30,85,165,1) 0%, rgba(50,150,215,1) 50%);
+  text-align: center;
+  padding: 50px 15px 26px 15px;
+
+  svg {
+    width: 221px;
+    height: 68px;
+    margin-bottom: 24px;
+
+    path {
+      fill: #fff;
+    }
+  }
+
+  &-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+
+  p {
+    color: #fff;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .navbar {
+    padding-top: 30px;
+    padding-bottom: 16px;
+  }
+
+}

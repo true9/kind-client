@@ -1,0 +1,79 @@
+<section class="reveal-title" *ngIf="!success">
+  <h2 (click)="revealToggle = !revealToggle">I want to help.</h2>
+  <div class="reveal-button" (click)="revealToggle = !revealToggle">
+    <span *ngIf="!revealToggle">+</span>
+    <span *ngIf="revealToggle">-</span>
+  </div>
+</section>
+
+<div class="reveal-wrapper" [ngClass]="{'reveal-wrapper--active': revealToggle}">
+  <div class="form-intro">
+    <ng-container *ngIf="!success">
+      <p>It has never been more important to <strong>#BeKIND</strong>.</p>
+      <p>Become a hero and help your neighbours in their hour of need.</p>
+      <p>Your information and offer of help will only be visible to those searching in your area.</p>
+    </ng-container>
+
+    <div *ngIf="success">
+      <h2>Thank you! And thank you again.</h2>
+      <p>Your offer of help is greatly appreciated.</p>
+    </div>
+  </div>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()" class="form" *ngIf="registrationForm && !success">
+    <div class="form-row">
+      <label class="form-label">Name:</label>
+      <div class="form-input">
+        <input type="text" formControlName="name" required />
+      </div>
+      <div class="form-error" *ngIf="name.invalid && name.touched">
+        Please enter your name
+      </div>
+    </div>
+    <div class="form-row form-row--postcode">
+      <label class="form-label">Postcode: <span>Only enter the first 4 characters, for example BD20.</span></label>
+      <div class="form-input">
+        <input type="text" formControlName="partialPostcode" required />
+      </div>
+      <div class="form-error" *ngIf="partialPostcode.invalid && partialPostcode.touched">
+        Please enter the first 3 or 4 characters of your postcode
+      </div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">
+        Mobile Number:
+        <span>Your number will be publicly visible to those searching for help.</span>
+      </label>
+      <div class="form-input">
+        <input type="text" formControlName="contactPhone" placeholder="e.g. 07895123456" required />
+      </div>
+      <div class="form-error" *ngIf="contactPhone.invalid && contactPhone.touched">
+        Please enter a valid mobile number, starting with 07 or +447
+      </div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">How Can You Help?</label>
+      <div class="form-input">
+        <textarea formControlName="servicesProvided" placeholder="e.g. I can help collect medication, food, shopping, etc. I can walk your dog or be on the other end of a phone for a friendly chat." required></textarea>
+      </div>
+      <div class="form-error" *ngIf="servicesProvided.invalid && servicesProvided.touched">
+        Please add a message about how you help those in need
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-warning">
+        <div class="check">
+          <input id="ipt-consent" type="checkbox" formControlName="gdprConsent" />
+          <label for="ipt-consent">I am over the age of 18 and I give consent for my details to be publicly displayed on the KIND website and for those in need to contact me on the mobile number provided.</label>
+        </div>
+      </div>
+      <div class="form-error" *ngIf="gdprConsent.invalid && gdprConsent.dirty && gdprConsent.errors.pattern != null">
+        Please accept the KIND website terms
+      </div>
+    </div>
+    <button class="btn" type="submit" [disabled]="!registrationForm.valid">Submit</button>
+    <div class="form-error" *ngIf="error">
+      {{ error }}
+    </div>
+  </form>
+</div>
