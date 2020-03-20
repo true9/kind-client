@@ -23,13 +23,11 @@ export class HelperService {
     return this.http.post(e.api.url('helpers'), helper);
   }
 
-  public update(helper: Helper, identifier: string): Observable<any> {
-    return this.http.put(e.api.url('helpers/:identifier', { identifier }), helper);
+  public update(phoneNumber: string): Observable<any> {
+    return this.http.put(e.api.url('helpers/:phoneNumber', { phoneNumber }), null);
   }
 
   public delete(deregCode: string): Observable<any> {
     return this.http.delete(e.api.url('helpers/:deregCode', { deregCode }));
   }
-
-  public
 }

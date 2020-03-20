@@ -8,13 +8,15 @@ import { RegistrationComponent } from 'src/app/modules/helpers/components/regist
 import { HttpClientModule } from '@angular/common/http';
 import { HelperService } from 'src/app/modules/helpers/services/helper.service';
 import { ListComponent } from './components/list/list.component';
+import { DeregistrationComponent } from './components/deregistration/deregistration.component';
 
 
 @NgModule({
   declarations: [
     FinderComponent,
     RegistrationComponent,
-    ListComponent
+    ListComponent,
+    DeregistrationComponent
   ],
   imports: [
     CommonModule,

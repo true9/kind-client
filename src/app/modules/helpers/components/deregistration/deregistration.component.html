@@ -1,0 +1,39 @@
+<h2>Remove my offer of help</h2>
+<ng-container *ngIf="formStage == 1">
+  <p>No problem - enter the mobile number you registered with below and we'll send you a code (to make sure it's you) before we remove your offer</p>
+  <form [formGroup]="deregistrationForm" (ngSubmit)="submitCodeRequest()" *ngIf="formStage == 1">
+    <label class="form-label">Mobile number:</label>
+    <div class="form-input">
+      <input type="text" formControlName="contactPhone" required />
+    </div>
+    <div class="form-error" *ngIf="contactPhone.invalid && contactPhone.touched">
+      Please enter the mobile number you registered with
+    </div>
+    <div class="form-error" *ngIf="deRegistrationError">
+      {{ deRegistrationError }}
+    </div>
+    <button type="submit">Send code</button>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="formStage == 2">
+  <p>You will receive a code via SMS soon to make sure it's you - enter that code and we'll remove your offer from the search results</p>
+  <form [formGroup]="codeForm" (ngSubmit)="submitCodeConfirmation()">
+    <label class="form-label">Code:</label>
+    <div class="form-input">
+      <input type="text" formControlName="code" required />
+    </div>
+    <div class="form-error" *ngIf="code.invalid && code.touched">
+      Please enter the code you were sent via SMS
+    </div>
+    <div class="form-error" *ngIf="codeError">
+      {{ codeError }}
+    </div>
+    <button type="submit">Remove my offer of help</button>
+  </form>
+</ng-container>
+
+<ng-container *ngIf="formStage == 3">
+  <p>Your offer to help has been removed from the search results, thank you for being a local hero with KIND</p>
+</ng-container>
+
