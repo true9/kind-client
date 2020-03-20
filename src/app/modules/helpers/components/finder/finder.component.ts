@@ -16,7 +16,8 @@ export class FinderComponent {
   public postcode: string;
   public displayPostcode: string;
   public helpers: Helper[] = [];
-  public emptyNotice: boolean;
+
+  public revealToggle: boolean;
 
   constructor(
     private helperService: HelperService,

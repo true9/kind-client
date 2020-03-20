@@ -1,9 +1,12 @@
 <section class="reveal-title">
-  <h2>I need help.</h2>
-  <div class="reveal-button">+</div>
+  <h2 (click)="revealToggle = !revealToggle">I need help.</h2>
+  <div class="reveal-button" (click)="revealToggle = !revealToggle">
+    <span *ngIf="!revealToggle">+</span>
+    <span *ngIf="revealToggle">-</span>
+  </div>
 </section>
 
-<div class="reveal-wrapper reveal-wrapper--active">
+<div class="reveal-wrapper" [ngClass]="{'reveal-wrapper--active': revealToggle}">
   <section class="form">
     <div class="form-intro">
       <p>If you're self isolating as a result of the coronavirus, use the form below to find local people willing to help.</p>

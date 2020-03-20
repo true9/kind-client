@@ -19,6 +19,8 @@ export class RegistrationComponent {
   public success: boolean;
   public error: string;
 
+  public revealToggle: boolean;
+
   constructor(
     private router: Router,
     private helperService: HelperService

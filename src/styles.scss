@@ -238,6 +238,7 @@ h2 {
     padding: 30px 15px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 
     h2 {
       margin-bottom: 0;
@@ -259,5 +260,6 @@ h2 {
     text-align: center;
     line-height: 30px;
     color: #1e55a5;
+    cursor: pointer;
   }
 }

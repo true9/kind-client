@@ -1,9 +1,12 @@
 <section class="reveal-title">
-  <h2>I want to help.</h2>
-  <div class="reveal-button">+</div>
+  <h2 (click)="revealToggle = !revealToggle">I want to help.</h2>
+  <div class="reveal-button" (click)="revealToggle = !revealToggle">
+    <span *ngIf="!revealToggle">+</span>
+    <span *ngIf="revealToggle">-</span>
+  </div>
 </section>
 
-<div class="reveal-wrapper reveal-wrapper--active">
+<div class="reveal-wrapper" [ngClass]="{'reveal-wrapper--active': revealToggle}">
   <div class="form-intro">
     <p>It has never been more important to <strong>#BeKIND</strong>.</p>
     <p>Become a hero and help your neighbours in their hour of need.</p>
