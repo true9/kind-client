@@ -1,4 +1,4 @@
-<section class="reveal-title">
+<section class="reveal-title" *ngIf="!success">
   <h2 (click)="revealToggle = !revealToggle">I want to help.</h2>
   <div class="reveal-button" (click)="revealToggle = !revealToggle">
     <span *ngIf="!revealToggle">+</span>
@@ -8,9 +8,11 @@
 
 <div class="reveal-wrapper" [ngClass]="{'reveal-wrapper--active': revealToggle}">
   <div class="form-intro">
-    <p>It has never been more important to <strong>#BeKIND</strong>.</p>
-    <p>Become a hero and help your neighbours in their hour of need.</p>
-    <p>Your information and offer of help will only be visible to those searching in your area.</p>
+    <ng-container *ngIf="!success">
+      <p>It has never been more important to <strong>#BeKIND</strong>.</p>
+      <p>Become a hero and help your neighbours in their hour of need.</p>
+      <p>Your information and offer of help will only be visible to those searching in your area.</p>
+    </ng-container>
 
     <div *ngIf="success">
       <h2>Thank you! And thank you again.</h2>
