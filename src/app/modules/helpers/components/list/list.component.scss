@@ -61,3 +61,21 @@
     }
   }
 }
+
+@media (max-width: 575px) {
+  .helpers {
+    text-align: left;
+  }
+
+  .helpers-list {
+    .helper {
+      margin-left: -15px;
+      margin-right: -15px;
+      border-left: 0;
+      border-right: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-bottom: 0;
+    }
+  }
+}

@@ -221,14 +221,6 @@ h2 {
   margin-bottom: 30px;
 }
 
-.reveal-wrapper {
-  display: none;
-
-  &--active {
-    display: block;
-  }
-}
-
 .reveal-button {
   display: none;
 }
@@ -239,27 +231,36 @@ h2 {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    cursor: pointer;
 
     h2 {
       margin-bottom: 0;
+      font-size: 34px;
     }
   }
 
   .reveal-wrapper {
     padding: 0 15px 30px 15px;
+    display: none;
+
+    &--active {
+      display: block;
+    }
   }
 
   .reveal-button {
     display: block;
-    width: 30px;
-    height: 30px;
-    background: none #fff;
+    width: 46px;
+    height: 46px;
+    background: none #1e55a5;
     border: 1px solid #1e55a5;
     align-self: center;
-    font-size: 32px;
+    font-size: 40px;
     text-align: center;
-    line-height: 30px;
-    color: #1e55a5;
+    line-height: 46px;
+    color: #fff;
+    font-weight: 600;
     cursor: pointer;
+    border-radius: 50%;
   }
 }
