@@ -30,6 +30,4 @@ export class HelperService {
   public delete(deregCode: string): Observable<any> {
     return this.http.delete(e.api.url('helpers/:deregCode', { deregCode }));
   }
-
-  public
 }

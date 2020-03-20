@@ -2,8 +2,8 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 /**
  * Syntax is an absolute eye melter, but in short we'll either return null meaning the value is ok,
- * or we'll return an object which marks the control as contactPhone control as invalid
- * and returns the user's input back into the form so they're not fighting with it.
+ * or we'll return an object which marks the control "contactPhone" as invalid, then
+ * returns the user's input back into the form so they're not fighting with it.
  */
 export function mobileNumberValidator(): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} | null => {
@@ -17,6 +17,7 @@ export function mobileNumberValidator(): ValidatorFn {
     const intlFormat = value.startsWith('+44');
 
     if (ukFormat) {
+      // Length can be 11 (without a space) or 12 characters (with a space), space will be stripped out on the API side
       if ((value.length === 11 || value.length === 12) && !value.match(/[^0-9\s]/g)) {
         return null;
       } else {
