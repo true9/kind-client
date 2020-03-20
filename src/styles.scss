@@ -221,14 +221,6 @@ h2 {
   margin-bottom: 30px;
 }
 
-.reveal-wrapper {
-  display: none;
-
-  &--active {
-    display: block;
-  }
-}
-
 .reveal-button {
   display: none;
 }
@@ -247,6 +239,11 @@ h2 {
 
   .reveal-wrapper {
     padding: 0 15px 30px 15px;
+    display: none;
+
+    &--active {
+      display: block;
+    }
   }
 
   .reveal-button {
