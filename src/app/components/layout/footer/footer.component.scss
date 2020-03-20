@@ -2,6 +2,13 @@
   border-top: 1px solid #f0f0f0;
   padding: 30px 15px 60px 15px;
 
+  &-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
   &-brand {
     svg {
       width: 44px;
@@ -15,8 +22,6 @@
   }
 
   &-wrapper {
-    max-width: 1280px;
-    margin: 0 auto;
     display: flex;
   }
 
@@ -29,5 +34,15 @@
       color: #1e55a5;
       font-weight: 600;
     }
+  }
+}
+
+@media (max-width: 575px) {
+  .footer-container {
+    display: block;
+  }
+
+  .footer-github {
+    margin-top: 20px;
   }
 }
