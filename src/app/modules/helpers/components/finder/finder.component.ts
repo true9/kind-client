@@ -22,7 +22,12 @@ export class FinderComponent {
   constructor(
     private helperService: HelperService,
     private router: Router
-  ) {}
+  ) {
+    const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if (viewportWidth > 575) {
+      this.revealToggle = true;
+    }
+  }
 
   public submitForm(): void {
     this.loading = true;

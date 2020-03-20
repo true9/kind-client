@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 import Helper from 'src/app/shared/models/helper.model';
 import { HelperService } from 'src/app/modules/helpers/services/helper.service';
 import { mobileNumberValidator } from 'src/app/modules/helpers/validators/mobile-number.validator';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-registration',
@@ -32,6 +33,11 @@ export class RegistrationComponent {
       servicesProvided: new FormControl('', [Validators.required]),
       gdprConsent: new FormControl(false, [Validators.pattern('true')])
     });
+
+    const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    if (viewportWidth > 575) {
+      this.revealToggle = true;
+    }
   }
 
   public submitForm(): void {
