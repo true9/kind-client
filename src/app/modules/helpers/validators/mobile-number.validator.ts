@@ -17,7 +17,7 @@ export function mobileNumberValidator(): ValidatorFn {
     const intlFormat = value.startsWith('+44');
 
     if (ukFormat) {
-      if (value.length === 11 && !value.match(/[^0-9]/g)) {
+      if ((value.length === 11 || value.length === 12) && !value.match(/[^0-9\s]/g)) {
         return null;
       } else {
         return { contactPhone: { valid: false, value }};
