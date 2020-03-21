@@ -18,7 +18,7 @@
   <section *ngIf="loaded">
     <div class="helpers-list">
       <div class="helper" *ngFor="let helper of helpers">
-        <h3>{{ helper.name }}</h3>
+        <h3>{{ helper.name.split(' ')[0] }}</h3>
         <p class="helper-no"><a href="tel:{{ helper.contactPhone }}">{{ helper.contactPhone }}</a></p>
         <div class="helper-body">
           <p>{{ helper.servicesProvided }}</p>
