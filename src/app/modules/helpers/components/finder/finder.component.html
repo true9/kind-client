@@ -13,7 +13,7 @@
     </div>
     <form (ngSubmit)="submitForm()" class="form">
       <div class="form-row form-row--postcode">
-        <label class="form-label">Postcode: <span>Only enter the first 3 or 4 characters, for example BD20.</span></label>
+        <label class="form-label">Postcode: <span>Only enter the first part of your postcode, for example BD20 or LS6.</span></label>
         <div class="form-input">
           <input type="text" maxlength="4" name="postcode" id="postcode" [(ngModel)]="postcode" />
         </div>

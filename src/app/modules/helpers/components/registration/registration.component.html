@@ -22,21 +22,21 @@
 
   <form [formGroup]="registrationForm" (ngSubmit)="submitForm()" class="form" *ngIf="registrationForm && !success">
     <div class="form-row">
-      <label class="form-label">Name:</label>
+      <label class="form-label">First Name:</label>
       <div class="form-input">
         <input type="text" formControlName="name" required />
       </div>
       <div class="form-error" *ngIf="name.invalid && name.touched">
-        Please enter your name
+        Please enter your first name
       </div>
     </div>
     <div class="form-row form-row--postcode">
-      <label class="form-label">Postcode: <span>Only enter the first 3 or 4 characters, for example BD20.</span></label>
+      <label class="form-label">Postcode: <span>Only enter the first part of your postcode, for example BD20 or LS6.</span></label>
       <div class="form-input">
         <input type="text" maxlength="4" formControlName="partialPostcode" required />
       </div>
       <div class="form-error" *ngIf="partialPostcode.invalid && partialPostcode.touched">
-        Please enter the first 3 or 4 characters of your postcode
+        Please enter the part of your postcode
       </div>
     </div>
     <div class="form-row">
@@ -52,9 +52,9 @@
       </div>
     </div>
     <div class="form-row">
-      <label class="form-label">How Can You Help?</label>
+      <label class="form-label">How Can You Help? <span>Enter up to 255 characters.</span></label>
       <div class="form-input">
-        <textarea formControlName="servicesProvided" placeholder="e.g. I can help collect medication, food, shopping, etc. I can walk your dog or be on the other end of a phone for a friendly chat." required></textarea>
+        <textarea maxlength="255" formControlName="servicesProvided" placeholder="e.g. I can help collect medication, food, shopping, etc. I can walk your dog or be on the other end of a phone for a friendly chat." required></textarea>
       </div>
       <div class="form-error" *ngIf="servicesProvided.invalid && servicesProvided.touched">
         Please add a message about how you help those in need
