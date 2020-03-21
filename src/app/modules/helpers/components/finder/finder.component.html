@@ -1,6 +1,6 @@
 <section class="reveal-title">
   <h2 (click)="revealToggle = !revealToggle">I need help.</h2>
-  <div class="reveal-button" (click)="revealToggle = !revealToggle">
+  <div class="reveal-button" (click)="revealToggle = !revealToggle" [ngClass]="{'reveal-button--active': revealToggle}">
     <span *ngIf="!revealToggle">+</span>
     <span *ngIf="revealToggle">-</span>
   </div>

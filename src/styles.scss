@@ -236,6 +236,7 @@ h2 {
     h2 {
       margin-bottom: 0;
       font-size: 34px;
+      line-height: 46px;
     }
   }
 
@@ -262,5 +263,9 @@ h2 {
     font-weight: 600;
     cursor: pointer;
     border-radius: 50%;
+
+    &--active {
+      line-height: 39px;
+    }
   }
 }
