@@ -1,6 +1,6 @@
-<section class="reveal-title" *ngIf="!success">
-  <h2 (click)="revealToggle = !revealToggle">I want to help.</h2>
-  <div class="reveal-button" (click)="revealToggle = !revealToggle" [ngClass]="{'reveal-button--active': revealToggle}">
+<section class="reveal-title" *ngIf="!success" (click)="revealToggle = !revealToggle">
+  <h2>I want to help.</h2>
+  <div class="reveal-button" [ngClass]="{'reveal-button--active': revealToggle}">
     <span *ngIf="!revealToggle">+</span>
     <span *ngIf="revealToggle">-</span>
   </div>
