@@ -9,6 +9,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { HelpersModule } from 'src/app/modules/helpers/helpers.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RouterModule } from '@angular/router';
+import { FaqsComponent } from './components/faqs/faqs.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     FooterComponent,
     LandingComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FaqsComponent
   ],
   imports: [
     BrowserModule,
